@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <title>Contact State Standard Installation</title>
+
+    <style>
+      body {
+        background:#fff;
+        font-family: Arial, sans-serif;
+        color: #000;
+      }
+
+      h1 {
+        font-weight: bold;
+        font-size: 3rem;
+      }
+
+      p {
+        font-weight: bold;
+        font-size: 2rem;
+      }
+
+      a, a:active, a:link, a:visited {
+        color: #054173;
+        text-decoration: none;
+      }
+
+      #testForm span {
+        display: block;
+        padding: 20px 0 20px 0;
+        font-weight: bold;
+        font-size: 2rem;
+      }
+      
+      #testForm input.text {
+        width: 100%;
+        height: 50px;
+        vertical-align: middle;
+        line-height: 50px;
+        color: #666;
+        font-size: 2rem;
+        padding: 3px;
+      }
+
+      #testForm input.submit {
+        width: 100%;
+        height: 50px;
+        vertical-align: middle;
+        line-height: 50px;
+        color: #fff;
+        background: #054173;
+        border: 2px solid #fff;
+        font-size: 2rem;
+        padding: 0;
+      }
+
+      #contact-state-privacy-notice {
+        padding: 20px 0 20px 0;
+      }
+
+      #contact-state-privacy-notice div {
+        font-size: 16px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Standard frontend installation example</h1>
+    
+    <!-- Load the Contact State widget -->
+    <div id="contact-state-protected-by-widget"></div>
+    
+    <form id="testForm" action="/backend.php" method="POST">
+      <div>
+        <span>Name:</span>
+        <input name="name" type="text" class="text" value="John Smith" />
+      </div>
+      <div>
+        <span>Email:</span>
+        <input id="email" name="email" type="text" class="text" value="john.smith@contactstate.com" />
+      </div>
+      <div>
+          <!-- Load the Contact State privacy notice -->
+          <div id="contact-state-privacy-notice"></div>
+      </div>
+      <div>
+        <input type="submit" class="submit" name="Submit" />
+      </div>
+    </form>
+
+    <script>
+      (function (w,d,s,o,f,js,fjs) {
+        w['ContactStateCertify']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+        js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+        js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+      }(window, document, 'script', 'cscertify', 'https://js.contactstate.com/certify-latest.js'));
+      cscertify('init', { landing_page_id: 'a0c9b8e7-d494-4073-aee1-2a3baae53eab' });
+      cscertify('attach', { form_id: 'testForm' });
+      cscertify('widget');
+    </script>
+  </body>
+</html>
